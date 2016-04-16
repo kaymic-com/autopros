@@ -18,10 +18,12 @@ class ServicesController < ApplicationController
 	# GET /services/new
 	def new
 		@service = Service.new
+		@service.items.build
 	end
 
 	# GET /services/1/edit
 	def edit
+		@service.items.build
 	end
 
 	# POST /services
@@ -72,6 +74,6 @@ class ServicesController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
 	def service_params
-		params.require(:service).permit(:name, :description, :price, :position)
+		params.require(:service).permit(:name, :description, :price, :position, items_attributes: [:id, :description, :_destroy])
 	end
 end

@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require nested_form
 //= require_tree .
-
-// require nested_form

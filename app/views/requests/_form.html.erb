@@ -2,8 +2,8 @@
 
 <div class="modal-body">
 	<% if @request.errors.any? %>
-	<div id="error_explanation">
-		<strong><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</strong>
+	<div id="error_explanation" class="alert alert-danger">
+		<strong><%= pluralize(@request.errors.count, "error") %> prohibited this request from being sent:</strong>
 		<ul>
 			<% @request.errors.full_messages.each do |message| %>
 			<li><%= message %></li>

@@ -2,6 +2,6 @@ class Request < ActiveRecord::Base
 
 	belongs_to :service
 
-	validates :day, :name, :email, presence: true
+	validates :service_id, :day, :name, :email, presence: true
 
 end

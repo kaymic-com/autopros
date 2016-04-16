@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416041407) do
+ActiveRecord::Schema.define(version: 20160416170504) do
 
   create_table "faqs", force: :cascade do |t|
     t.string   "question"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 20160416041407) do
   end
 
   add_index "requests", ["service_id"], name: "index_requests_on_service_id"
+
+  create_table "service_items", force: :cascade do |t|
+    t.integer  "service_id"
+    t.string   "description"
+    t.text     "long_description"
+    t.integer  "position"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "service_items", ["service_id"], name: "index_service_items_on_service_id"
 
   create_table "services", force: :cascade do |t|
     t.string   "name"

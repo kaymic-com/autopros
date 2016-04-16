@@ -17,14 +17,14 @@
 		<div class="modal-body">
 			<p id="notice"><%= notice %></p>
 
-			<%= content_tag :p, @service.description if @service.description.present? %>
+			<%= content_tag :p, @service.description, class: :lead if @service.description.present? %>
 
 			<ul>
-				<!-- {% for item in page.items %} -->
+				<% @service.items.each do |item| %>
 				<li>
-					{{item.name}}
+					<%= item.description %>
 				</li>
-				<!-- {% endfor %} -->
+				<% end %>
 			</ul>
 		</div>
 

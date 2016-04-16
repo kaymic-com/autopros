@@ -12,12 +12,10 @@
 		</div>
 
 		<table class="table table-condensed text-center small">
-			<!-- {% for item in service.items limit:4 %} -->
-			<tr><td>
-				{{item.name}}
-			</td></tr>
-			<!-- {% endfor %} -->
-			<tr><td class="text-danger">And Much More!</td></tr>
+			<tbody>
+				<%= render service.items.limit(4) %>
+				<tr><td class="text-danger">And Much More!</td></tr>
+			</tbody>
 		</table>
 
 		<footer class="panel-footer">
