@@ -1,0 +1,42 @@
+<nav id="topNav" class="navbar navbar-inverse navbar-fixed-top-sm">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+
+			<%= link_to new_request_path, id: 'navbarBtnSm', class: 'pull-right btn btn-info hidden-md hidden-lg', data: { toggle: :modal, target: '#defaultModal' } do %>
+			<span class="sr-only">Request a Detail</span>
+			<i class="fa fa-fw fa-calendar"></i>
+			<% end %>
+
+			<%= link_to 'AutoPros Mobile Detailing', root_path, class: 'navbar-brand' %>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+
+				<%= content_tag :li, link_to('Services & Pricing', services_path) %>
+				<%= content_tag :li, link_to('FAQs', faqs_path) %>
+
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right" >
+				<%= link_to new_request_path, id: 'navbarBtnMd', class: 'btn btn-sm btn-info navbar-btn hidden-sm hidden-xs', data: { toggle: :modal, target: '#defaultModal' } do %>
+				Request a Detail <i class="fa fa-fw fa-calendar"></i>
+				<% end %>
+				<li>
+					<%= link_to new_request_path, class: 'hidden-md hidden-lg', data: { toggle: :modal, target: '#defaultModal' } do %>
+					<i class="fa fa-fw fa-calendar"></i> Request a Detail
+					<% end %>
+				</li>
+			</ul>
+
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>

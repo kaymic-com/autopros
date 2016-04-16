@@ -1,0 +1,91 @@
+<%= form_for(@request) do |f| %>
+
+<div class="modal-body">
+	<% if @request.errors.any? %>
+	<div id="error_explanation">
+		<strong><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</strong>
+		<ul>
+			<% @request.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<div class="row">
+		<div class="col-xs-6">
+			<p>
+				<a href="tel:8137783544" class="btn btn-default btn-block btn-lg">
+					<i class="fa fa-fw fa-phone fa-4x"></i>
+				</a>
+			</p>
+		</div>
+		<div class="col-xs-6">
+			<p>
+				<a href="#" class="btn btn-default btn-block btn-lg active">
+					<i class="fa fa-fw fa-calendar fa-4x"></i>
+				</a>
+			</div>
+		</p>
+	</div>
+
+	<% unless @request.service.present? %>
+	<div class="form-group form-group-lg">
+		<div class="input-group input-group-lg">
+			<%= f.select :service_id, Service.all.map{ |s| ["#{s.name} - #{number_to_currency(s.price)}", s.id] }, {include_blank: false}, class: 'form-control' %>
+			<span class="input-group-btn">
+				<a href="<%= services_path %>" class="btn btn-info">
+					<i class="fa fa-fw fa-info-circle"></i>
+				</a>
+			</span>
+		</div>
+	</div>
+	<% end %>
+
+	<div class="form-group">
+		<%= f.date_field :day, class: 'form-control' %>
+	</div>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-xs-4">
+				<%= f.select :hour, (1..12), {include_blank: false}, class: 'form-control' %>
+			</div>
+			<div class="col-xs-4">
+				<%= f.select :minute, [["00",0],[30]], {include_blank: false}, class: 'form-control' %>
+			</div>
+			<div class="col-xs-4">
+				<%= f.select :meridiem, [["AM",false],["PM",true]], {include_blank: false}, class: 'form-control' %>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="row">
+			<div class="col-sm-6">
+				<p>
+					<%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+				</p>
+			</div>
+			<div class="col-sm-6">
+				<p>
+					<%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+				</p>
+			</div>
+		</div>
+	</div>
+
+	<p class="small text-muted">
+		<em>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+		</em>
+	</p>
+
+</div>
+
+<footer class="modal-footer">
+	<%= link_to 'Cancel', services_path, class: 'btn btn-default', data: { dismiss: :modal } %>
+	<%= f.submit @submit_btn || nil, class: 'btn btn-primary' %>
+</footer>
+
+<% end %>

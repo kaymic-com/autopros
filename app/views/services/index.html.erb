@@ -1,0 +1,10 @@
+<header class="page-header">
+	<%= link_to 'New Service', new_service_path, class: 'pull-right' if is_admin? %>
+	<h1 class="text-center">Pricing &amp; Services</h1>
+</header>
+
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<%= render @services.limit(5) %>
+</div>

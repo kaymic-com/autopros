@@ -1,0 +1,42 @@
+[
+   {
+      "id":1,
+      "name":"Wash \u0026 Wax",
+      "description":"Exterior Only",
+      "price":"75.0",
+      "position":null,
+      "url":"http://localhost:3000/services/1.json"
+   },
+   {
+      "id":2,
+      "name":"Interior Only",
+      "description":"",
+      "price":"125.0",
+      "position":null,
+      "url":"http://localhost:3000/services/2.json"
+   },
+   {
+      "id":3,
+      "name":"Deluxe Detail",
+      "description":"",
+      "price":"115.0",
+      "position":null,
+      "url":"http://localhost:3000/services/3.json"
+   },
+   {
+      "id":4,
+      "name":"Ultimate Detail",
+      "description":"",
+      "price":"195.0",
+      "position":null,
+      "url":"http://localhost:3000/services/4.json"
+   },
+   {
+      "id":5,
+      "name":"The Works",
+      "description":"",
+      "price":"370.0",
+      "position":null,
+      "url":"http://localhost:3000/services/5.json"
+   }
+]

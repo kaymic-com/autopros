@@ -1,0 +1,27 @@
+<div class="col-md-20">
+	<div class="panel panel-primary">
+		<header class="panel-heading">
+			<h4 class="panel-title text-center">
+				<%= service.name %>
+			</h4>
+		</header>
+		<div class="panel-body">
+			<h3 class="text-center text-muted">
+				<%= number_to_currency service.price %>
+			</h3>
+		</div>
+
+		<table class="table table-condensed text-center small">
+			<!-- {% for item in service.items limit:4 %} -->
+			<tr><td>
+				{{item.name}}
+			</td></tr>
+			<!-- {% endfor %} -->
+			<tr><td class="text-danger">And Much More!</td></tr>
+		</table>
+
+		<footer class="panel-footer">
+			<%= link_to 'Learn More', service, data: { toggle: :modal, target: '#defaultModal' }, class: 'btn btn-info btn-block' %>
+		</footer>
+	</div>
+</div>

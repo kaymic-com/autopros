@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_id: 
+  day: 2016-04-16
+  hour: 1
+  minute: 1
+  meridiem: false
+  name: MyString
+  email: MyString
+
+two:
+  service_id: 
+  day: 2016-04-16
+  hour: 1
+  minute: 1
+  meridiem: false
+  name: MyString
+  email: MyString

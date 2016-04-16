@@ -1,0 +1,24 @@
+<div class="page-header">
+	<%= link_to 'New FAQ', new_faq_path, class: 'pull-right' if is_admin? %>
+	<h1 class="text-center">Frequently Asked Questions</h1>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<ul>
+	<% @faqs.each do |faq| %>
+	<%= content_tag :li, link_to(faq.question, faq) %>
+	<% end %>
+</ul>
+
+<div id="faqs">
+	<% @faqs.each do |faq| %>
+	<%= content_tag_for :div, faq do %>
+
+	<%= link_to 'Edit', edit_faq_path(faq), class: 'pull-right' if is_admin? %>
+	<%= content_tag :h3, faq.question, name: 'hi' %>
+	<%= faq.answer %>
+
+	<% end %>
+	<% end %>
+</div>
