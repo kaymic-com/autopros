@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @portfolio_item.service %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @portfolio_item.year %>
+</p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @portfolio_item.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @portfolio_item.model %>
+</p>
+
+<%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item) %> |
+<%= link_to 'Back', portfolio_items_path %>

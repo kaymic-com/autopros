@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service_id: 
+  year: 1
+  make: MyString
+  model: MyString
+
+two:
+  service_id: 
+  year: 1
+  make: MyString
+  model: MyString
