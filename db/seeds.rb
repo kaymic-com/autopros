@@ -6,9 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# SERVICES = JSON.parse File.read("#{Rails.root}/lib/assets/services.json"), object_class: OpenStruct
-# SERVICES.each do |site|
-# 	Service.find_or_create_by() do |new_site|
-#
-# 	end
-# end
+SERVICES = JSON.parse File.read("#{Rails.root}/lib/assets/services.json"), object_class: OpenStruct
+SERVICES.each do |service|
+	Service.find_or_create_by(name: service.name) do |new_service|
+		new_service.description = service.description
+		new_service.price = service.price
+		new_service.position = service.position
+	end
+end
