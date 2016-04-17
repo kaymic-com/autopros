@@ -1,24 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="modal-dialog" role="document">
+	<div class="modal-content">
 
-<p>
-  <strong>Service:</strong>
-  <%= @portfolio_item.service %>
-</p>
+		<header class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item), class: 'btn btn-xs btn-danger pull-left' if is_admin? %>
+			<h4 class="modal-title text-center" id="defaultModalLabel">
+				<%= @portfolio_item.title %>
+			</h4>
+		</header>
 
-<p>
-  <strong>Year:</strong>
-  <%= @portfolio_item.year %>
-</p>
+		<div class="modal-body">
+			<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Make:</strong>
-  <%= @portfolio_item.make %>
-</p>
+			<p>
+				<%= @portfolio_item.description %>
+			</p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @portfolio_item.model %>
-</p>
+			<%= render 'carousel', item: @portfolio_item %>
 
-<%= link_to 'Edit', edit_portfolio_item_path(@portfolio_item) %> |
-<%= link_to 'Back', portfolio_items_path %>
+		</div>
+
+		<%#= link_to 'Back', portfolio_items_path %>
+
+	</div>
+</div>

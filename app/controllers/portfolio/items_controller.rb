@@ -10,6 +10,7 @@ class Portfolio::ItemsController < ApplicationController
   # GET /portfolio/items/1
   # GET /portfolio/items/1.json
   def show
+	  render :show, layout: false if request.xhr?
   end
 
   # GET /portfolio/items/new
@@ -69,6 +70,6 @@ class Portfolio::ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_item_params
-      params.require(:portfolio_item).permit(:service_id, :year, :make, :model)
+      params.require(:portfolio_item).permit(:service_id, :year, :make, :model, :description)
     end
 end

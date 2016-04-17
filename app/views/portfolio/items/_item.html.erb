@@ -1,0 +1,7 @@
+<div class="col-xs-6 col-sm-4 col-md-3">
+	<%= link_to item, class: 'thumbnail', data: {toggle: :modal, target: '#defaultModal'} do %>
+	<div class="embed-responsive embed-responsive-16by9">
+		<%= image_tag item.image, alt: item.title, title: item.title, class: 'img-responsive center-block' %>
+	</div>
+	<% end %>
+</div>
