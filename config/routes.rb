@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	namespace :portfolio do
+		resources :categories
 		resources :items, path: '/'
 	end
 
