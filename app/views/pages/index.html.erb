@@ -1,33 +1,34 @@
+<ul class="list-inline pull-right">
+	<%= content_tag :li, link_to('New Page', new_page_path) if is_admin? %>
+</ul>
+<header class="page-header">
+	<h1 class="text-center">
+		Pages
+	</h1>
+</header>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Pages</h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Slug</th>
+			<th>Model index</th>
+			<th colspan="3"></th>
+		</tr>
+	</thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Heading</th>
-      <th>Content</th>
-      <th>Model index</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pages.each do |page| %>
-      <tr>
-        <td><%= page.title %></td>
-        <td><%= page.heading %></td>
-        <td><%= page.content %></td>
-        <td><%= page.model_index %></td>
-        <td><%= link_to 'Show', page %></td>
-        <td><%= link_to 'Edit', edit_page_path(page) %></td>
-        <td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+	<tbody>
+		<% @pages.each do |page| %>
+		<tr>
+			<td><%= page.title %></td>
+			<td><%= page.slug %></td>
+			<td><%= page.model_index %></td>
+			<td><%= link_to 'Show', page %></td>
+			<td><%= link_to 'Edit', edit_page_path(page) %></td>
+			<td><%= link_to 'Destroy', page, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Page', new_page_path %>

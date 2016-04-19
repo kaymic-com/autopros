@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 	resources :faqs
 
 	resources :pages
-	resources :pages, path: '/', only: [:show]
+	resources :pages, path: '/', as: :root_page, only: [:show]
 
 	root 'static_pages#index'
 
