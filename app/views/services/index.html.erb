@@ -1,10 +1,19 @@
+<ul class="list-inline pull-right">
+	<%= content_tag :li, link_to('New Service', new_service_path) if is_admin? %>
+	<%= content_tag :li, link_to('Edit Page', [:edit, @page]) if is_admin? && @page.present? %>
+</ul>
 <header class="page-header">
-	<%= link_to 'New Service', new_service_path, class: 'pull-right' if is_admin? %>
-	<h1 class="text-center">Services &amp; Pricing</h1>
+	<h1 class="text-center">
+		<%= @page.present? ? @page.title : 'Services & Pricing' %>
+	</h1>
 </header>
 
 <p id="notice"><%= notice %></p>
 
+<%= content_tag :div, @page.heading, class: :lead if @page.present? %>
+
 <div class="row">
 	<%= render @services.limit(5) %>
 </div>
+
+<%= content_tag :div, @page.content.html_safe if @page.present? %>

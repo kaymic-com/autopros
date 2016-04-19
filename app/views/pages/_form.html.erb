@@ -1,0 +1,45 @@
+<%= form_for(@page) do |f| %>
+<% if @page.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<strong><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</strong>
+	<ul>
+		<% @page.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="form-group">
+	<%= f.label :title %>
+	<%= f.text_field :title, class: 'form-control' %>
+</div>
+
+<div class="row">
+	<div class="col-sm-8">
+		<div class="form-group">
+			<%= f.label :slug %>
+			<%= f.text_field :slug, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="col-sm-4">
+		<div class="form-group">
+			<%= f.label :model_index %>
+			<%= f.select :model_index, Page.model_indices, {include_blank: '-'}, class: 'form-control' %>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<%= f.label :heading %>
+	<%= f.text_area :heading, class: 'form-control' %>
+</div>
+<div class="form-group">
+	<%= f.label :content %>
+	<%= f.text_area :content, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+	<%= f.submit nil, class: 'btn btn-default' %>
+</div>
+<% end %>

@@ -6,6 +6,7 @@ class ServicesController < ApplicationController
 	# GET /services.json
 	def index
 		@services = Service.all
+		@page = Page.find_by(model_index: params[:controller])
 	end
 
 	# GET /services/1
