@@ -1,9 +1,16 @@
+<header class="page-header">
+	<%= link_to 'Edit', edit_portfolio_category_path(@portfolio_category), class: 'pull-right' if is_admin? %>
+	<h1 class="text-center"><%= @portfolio_category.name %></h1>
+</header>
+
+<ol class="breadcrumb text-center">
+	<%= content_tag :li, link_to('Home', root_path) %>
+	<%= content_tag :li, link_to('Portfolio', portfolio_items_path) %>
+	<%= content_tag :li, @portfolio_category.name, class: :active %>
+</ol>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @portfolio_category.name %>
-</p>
-
-<%= link_to 'Edit', edit_portfolio_category_path(@portfolio_category) %> |
-<%= link_to 'Back', portfolio_categories_path %>
+<div class="row">
+	<%= render @portfolio_items %>
+</div>

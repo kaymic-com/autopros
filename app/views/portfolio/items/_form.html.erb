@@ -1,38 +1,65 @@
 <%= form_for(@portfolio_item) do |f| %>
-  <% if @portfolio_item.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <strong><%= pluralize(@portfolio_item.errors.count, "error") %> prohibited this portfolio_item from being saved:</strong>
+<% if @portfolio_item.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<strong><%= pluralize(@portfolio_item.errors.count, "error") %> prohibited this portfolio_item from being saved:</strong>
+	<ul>
+		<% @portfolio_item.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
-      <ul>
-      <% @portfolio_item.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+	<div class="col-sm-8">
 
-  <div class="form-group">
-    <%= f.label :service_id %>
-    <%= f.select :service_id, Service.all.map{ |s| [s.name, s.id] }, {}, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :year %>
-    <%= f.number_field :year, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :make %>
-    <%= f.text_field :make, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :model %>
-    <%= f.text_field :model, class: 'form-control' %>
-  </div>
+		<div class="form-group">
+			<%= f.label :service_id %>
+			<%= f.select :service_id, Service.all.map{ |s| [s.name, s.id] }, {}, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :description %>
+			<%= f.text_area :description, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :year %>
+			<%= f.number_field :year, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :make %>
+			<%= f.text_field :make, class: 'form-control' %>
+		</div>
+		<div class="form-group">
+			<%= f.label :model %>
+			<%= f.text_field :model, class: 'form-control' %>
+		</div>
 
-  <div class="form-group">
-    <%= f.submit nil, class: 'btn btn-default' %>
-  </div>
+	</div>
+	<div class="col-sm-4">
+
+		<div class="panel panel-default">
+
+			<%= link_to 'Edit', portfolio_categories_path, class: 'btn btn-info btn-sm pull-right' %>
+			<header class="panel-heading">
+				<h4 class="panel-title">
+					Categories
+				</h4>
+			</header>
+
+			<div class="panel-body">
+				<div class="form-group form-group-lg">
+					<%#= f.label :category_tokens, 'Categories' %>
+					<%= f.text_area :category_tokens, class: 'form-control', data: {load: @portfolio_item.categories} %>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="form-group">
+			<%= f.submit nil, class: 'btn btn-default btn-block' %>
+		</div>
+
+	</div>
+</div>
+
 <% end %>

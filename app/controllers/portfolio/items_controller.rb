@@ -70,6 +70,6 @@ class Portfolio::ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def portfolio_item_params
-      params.require(:portfolio_item).permit(:service_id, :year, :make, :model, :description)
+      params.require(:portfolio_item).permit(:service_id, :year, :make, :model, :description, :category_tokens)
     end
 end
