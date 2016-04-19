@@ -2,6 +2,8 @@ class NavItemsController < ApplicationController
 
 	include Sortable
 
+	before_action :authenticate_admin!
+
 	before_action :set_nav_item, only: [:show, :edit, :update, :destroy]
 
 	# GET /nav_items

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
 	concern :sortable do
 		collection do
 			post :sort

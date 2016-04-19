@@ -1,7 +1,7 @@
 module ApplicationHelper
 
 	def is_admin?
-		true
+		return (user_signed_in? ? current_user.is_admin? : false)
 	end
 
 end

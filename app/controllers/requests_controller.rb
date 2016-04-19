@@ -1,5 +1,7 @@
 class RequestsController < ApplicationController
 
+	before_action :authenticate_admin!, except: [:new, :create]
+
 	before_action :set_request, only: [:show, :edit, :update, :destroy]
 
 	# layout Proc.new { |c| c.request.xhr? ? false : 'application' }, only: [:new]

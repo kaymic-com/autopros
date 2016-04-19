@@ -1,5 +1,7 @@
 class ServicesController < ApplicationController
 
+	before_action :authenticate_admin!, except: [:index, :show]
+
 	before_action :set_service, only: [:show, :edit, :update, :destroy]
 
 	# GET /services

@@ -47,3 +47,4 @@ end
 
 gem 'nested_form'
 gem 'friendly_id'
+gem 'devise'
