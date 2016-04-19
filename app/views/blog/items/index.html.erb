@@ -1,0 +1,23 @@
+<header class="page-header">
+	<%= link_to 'New Item', new_blog_item_path, class: 'pull-right' if is_admin? %>
+	<h1 class="text-center">Blog</h1>
+</header>
+
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+	<div class="col-sm-8">
+
+		<div class="row">
+			<%= render @blog_items %>
+		</div>
+
+	</div>
+	<div class="col-sm-4">
+
+		<div class="thumbnail">
+			Advert
+		</div>
+
+	</div>
+</div>

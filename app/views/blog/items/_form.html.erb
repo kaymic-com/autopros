@@ -1,0 +1,32 @@
+<%= form_for(@blog_item) do |f| %>
+  <% if @blog_item.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <strong><%= pluralize(@blog_item.errors.count, "error") %> prohibited this blog_item from being saved:</strong>
+      <ul>
+      <% @blog_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :slug %>
+    <%= f.text_field :slug, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :publish_date %>
+    <%= f.date_field :publish_date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.submit nil, class: 'btn btn-default' %>
+  </div>
+<% end %>

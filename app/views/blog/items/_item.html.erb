@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+
+	<header class="panel-heading">
+		<div class="row">
+			<div class="col-xs-8">
+				<h3 class="panel-title">
+					<%= link_to item.title, item %>
+				</h3>
+			</div>
+			<div class="col-xs-4 text-right small">
+				<em><%= item.publish_date.strftime("%b %d, %Y") %></em>
+			</div>
+		</div>
+	</header>
+
+	<div class="panel-body">
+		<div class="media">
+			<div class="media-left">
+
+			</div>
+			<div class="media-body">
+				<%= truncate strip_tags(item.content), length: 350 %>
+			</div>
+		</div>
+
+		<%= link_to 'Edit', edit_blog_item_path(item), class: 'pull-right' if is_admin? %>
+	</div>
+
+</div>

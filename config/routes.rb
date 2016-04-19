@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+	namespace :blog do
+		resources :items, path: '/'
+	end
+
 	namespace :portfolio do
 		resources :categories
 		resources :items, path: '/'

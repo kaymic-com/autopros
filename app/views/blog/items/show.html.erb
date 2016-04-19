@@ -1,0 +1,22 @@
+<header class="page-header">
+	<%= link_to 'Edit Item', [:edit, @blog_item], class: 'pull-right' if is_admin? %>
+	<h1 class="text-center">
+		<%= @blog_item.title %>
+		<br>
+		<small>
+			<%= @blog_item.publish_date.strftime("%B %d, %Y") %>
+		</small>
+	</h1>
+</header>
+
+<ol class="breadcrumb text-center">
+	<%= content_tag :li, link_to('Home', root_path) %>
+	<%= content_tag :li, link_to('Blog', blog_items_path) %>
+	<%= content_tag :li, @blog_item.title, class: :active %>
+</ol>
+
+<p id="notice"><%= notice %></p>
+
+<article class="blog-item">
+	<%= @blog_item.content.html_safe %>
+</article>
