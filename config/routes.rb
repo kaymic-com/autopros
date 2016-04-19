@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :nav_items
+	concern :sortable do
+		collection do
+			post :sort
+		end
+	end
+
 	namespace :blog do
 		resources :items, path: '/'
 	end
@@ -10,6 +15,7 @@ Rails.application.routes.draw do
 		resources :items, path: '/'
 	end
 
+	resources :nav_items, concerns: [:sortable], except: [:show]
 	resources :services
 	resources :requests
 	resources :faqs

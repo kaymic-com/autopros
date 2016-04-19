@@ -17,24 +17,23 @@
 			<th>Href</th>
 			<th>Page</th>
 			<th>Blank target</th>
-			<th colspan="3"></th>
+			<th colspan="2"></th>
 		</tr>
 	</thead>
 
-	<tbody>
+	<tbody id="nav_items" data-sort-path="<%= sort_nav_items_path %>" >
 		<% @nav_items.each do |nav_item| %>
-		<tr>
-			<td>
-				<i class="fa fa-fw fa-bars"></i>
-			</td>
-			<td><%= nav_item.text %></td>
-			<td><%= link_to nav_item.href, nav_item.href %></td>
-			<td><%= link_to nav_item.page.title, nav_item.page if nav_item.page.present? %></td>
-			<td><%= nav_item.blank_target %></td>
-			<td><%= link_to 'Show', nav_item %></td>
-			<td><%= link_to 'Edit', edit_nav_item_path(nav_item) %></td>
-			<td><%= link_to 'Destroy', nav_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
+
+		<%= content_tag_for :tr, nav_item do %>
+		<td><i class="fa fa-fw fa-bars handle"></i></td>
+		<td><%= nav_item.text %></td>
+		<td><%= link_to nav_item.href, nav_item.href %></td>
+		<td><%= link_to nav_item.page.title, nav_item.page if nav_item.page.present? %></td>
+		<td><%= nav_item.blank_target %></td>
+		<td><%= link_to 'Edit', edit_nav_item_path(nav_item) %></td>
+		<td><%= link_to 'Destroy', nav_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		<% end %>
+
 		<% end %>
 	</tbody>
 </table>

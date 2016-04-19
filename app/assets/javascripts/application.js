@@ -15,4 +15,5 @@
 //= require bootstrap.min
 //= require nested_form
 //= require jquery.tokeninput
+//= require jquery-ui.min
 //= require_tree .

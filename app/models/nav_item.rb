@@ -3,6 +3,8 @@ class NavItem < ActiveRecord::Base
 	belongs_to :page
 	before_save :set_page_path_to_href
 
+	default_scope { order(position: :asc) }
+
 	private
 
 	def set_page_path_to_href

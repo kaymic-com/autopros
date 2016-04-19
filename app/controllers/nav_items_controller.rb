@@ -1,4 +1,7 @@
 class NavItemsController < ApplicationController
+
+	include Sortable
+
 	before_action :set_nav_item, only: [:show, :edit, :update, :destroy]
 
 	# GET /nav_items
@@ -9,8 +12,8 @@ class NavItemsController < ApplicationController
 
 	# GET /nav_items/1
 	# GET /nav_items/1.json
-	def show
-	end
+	# def show
+	# end
 
 	# GET /nav_items/new
 	def new
@@ -28,7 +31,7 @@ class NavItemsController < ApplicationController
 
 		respond_to do |format|
 			if @nav_item.save
-				format.html { redirect_to @nav_item, notice: 'Nav item was successfully created.' }
+				format.html { redirect_to nav_items_path, notice: 'Nav item was successfully created.' }
 				format.json { render :show, status: :created, location: @nav_item }
 			else
 				format.html { render :new }
@@ -42,7 +45,7 @@ class NavItemsController < ApplicationController
 	def update
 		respond_to do |format|
 			if @nav_item.update(nav_item_params)
-				format.html { redirect_to @nav_item, notice: 'Nav item was successfully updated.' }
+				format.html { redirect_to nav_items_path, notice: 'Nav item was successfully updated.' }
 				format.json { render :show, status: :ok, location: @nav_item }
 			else
 				format.html { render :edit }
