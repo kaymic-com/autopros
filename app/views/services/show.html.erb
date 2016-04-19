@@ -17,7 +17,7 @@
 		<div class="modal-body">
 			<p id="notice"><%= notice %></p>
 
-			<%= content_tag :p, @service.description, class: :lead if @service.description.present? %>
+			<%= content_tag :p, sanitize(@service.description), class: :lead if @service.description.present? %>
 
 			<ul>
 				<% @service.items.each do |item| %>

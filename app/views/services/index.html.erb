@@ -10,7 +10,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= content_tag :div, @page.heading, class: :lead if @page.present? %>
+<%= content_tag :div, sanitize(@page.heading), class: :lead if @page.present? %>
 
 <div class="row">
 	<%= render @services.limit(5) %>

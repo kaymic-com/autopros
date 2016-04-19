@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
 	friendly_id :title, use: :slugged
 
 	def self.model_indices
-		%w(services)
+		%w(static_pages services)
 	end
 
 end

@@ -1,0 +1,98 @@
+<% @no_container = true %>
+
+<div id="jumbo-main" class="">
+	<div class="embed-responsive-jumbo">
+		<div class="container">
+			<div class="jumbotron">
+
+				<h2 class="">
+					AutoPros Mobile Detailing Tampa, Brandon, Lakeland – When you need your car detailed right...
+				</h2>
+
+				<%= link_to 'Call the AutoPros', new_request_path, class: 'btn btn-lg btn-info', data: { toggle: :modal, target: '#defaultModal' } %>
+
+			</div>
+		</div>
+		<div id="jumboFade"></div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-sm-push-4">
+
+			<p class="lead">
+				Life is hectic, but we can help! Between work, school and everyone's busy schedules, you don't have time to simply wash your car, let alone do a full auto detail. Let <strong>AutoPros Mobile Detailing</strong> do it for you from the convenience of your home or office.
+			</p>
+			<p>
+				We are the solution for your car wash and detailing needs. Our services include:
+			</p>
+
+			<ul>
+				<li>Exterior washing & waxing</li>
+				<li>Light, moderate or intensive interior detailing</li>
+				<li>Paint correction (removing light scratches, swirls and other minor to moderate paint issues)</li>
+				<li>Odor removal</li>
+				<li>Headlight restoration</li>
+				<li>"Bullet proofing" your paint</li>
+			</ul>
+
+			<p>
+				We aren't satisfied until you are satisfied.
+			</p>
+
+			<p>
+				<strong>
+					Call us today at
+					<a href="tel:8137783544" class="btn btn-default btn-xs"><i class="fa fa-fa fa-phone"></i> 813-778-3544</a>
+					or fill out
+					<%= link_to 'Our Form', new_request_path, class: 'btn btn-primary btn-xs', data: { toggle: :modal, target: '#defaultModal' } %>
+					to request an appointment.
+				</strong>
+			</p>
+
+			<p>
+				We proudly service all of Hillsborough County and parts of Polk and Pasco counties including the following areas:
+			</p>
+
+			<ul class="list-inline text-center">
+				<li><span class="label label-info">Brandon</span></li>
+				<li><span class="label label-info">Carrollwood</span></li>
+				<li><span class="label label-info">Dover</span></li>
+				<li><span class="label label-info">Fishhawk</span></li>
+				<li><span class="label label-info">Land O' Lakes</span></li>
+				<li><span class="label label-info">Lakeland</span></li>
+				<li><span class="label label-info">Lithia</span></li>
+				<li><span class="label label-info">Lutz</span></li>
+				<li><span class="label label-info">New Tampa</span></li>
+				<li><span class="label label-info">Plant City</span></li>
+				<li><span class="label label-info">Riverview</span></li>
+				<li><span class="label label-info">Tampa</span></li>
+				<li><span class="label label-info">Temple Terrace</span></li>
+				<li><span class="label label-info">Thonotosassa</span></li>
+				<li><span class="label label-info">Valrico</span></li>
+				<li><span class="label label-info">Wesley Chappel</span></li>
+			</ul>
+
+		</div>
+		<div class="col-sm-4 col-sm-pull-8">
+
+			<div class="panel panel-default">
+				<ul class="list-group">
+					<%= render @faqs %>
+				</ul>
+				<footer class="panel-footer text-center small">
+					<%= link_to 'More FAQs', faqs_path %>
+				</footer>
+			</div>
+
+			<p>
+				<%= image_tag 'truck.jpg', class: 'img-responsive img-thumbnail center-block' %>
+			</p>
+			<p>
+				<%= image_tag 'ida.png', class: 'img-responsive center-block' %>
+			</p>
+
+		</div>
+	</div>
+</div>
