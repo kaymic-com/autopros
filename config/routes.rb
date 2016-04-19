@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :nav_items
 	namespace :blog do
 		resources :items, path: '/'
 	end

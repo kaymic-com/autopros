@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419141917) do
+ActiveRecord::Schema.define(version: 20160419205011) do
 
   create_table "blog_items", force: :cascade do |t|
     t.string   "title"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20160419141917) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "nav_items", force: :cascade do |t|
+    t.string   "href"
+    t.string   "text"
+    t.integer  "page_id"
+    t.integer  "position"
+    t.boolean  "blank_target"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "nav_items", ["page_id"], name: "index_nav_items_on_page_id"
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"

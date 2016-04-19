@@ -21,10 +21,8 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 
-				<%= content_tag :li, link_to('Services & Pricing', services_path) %>
-				<%= content_tag :li, link_to('Portfolio', portfolio_items_path) %>
-				<%= content_tag :li, link_to('FAQs', faqs_path) %>
-				<%= content_tag :li, link_to('Blog', blog_items_path) %>
+				<%= render partial: 'nav_items/nav_item', collection: @nav_items, as: :nav_item %>
+				<%= content_tag :li, link_to('<i class="fa fa-fw fa-pencil"></i>'.html_safe, nav_items_path) if is_admin? %>
 
 			</ul>
 

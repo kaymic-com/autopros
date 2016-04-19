@@ -14,3 +14,8 @@ SERVICES.each do |service|
 		new_service.position = service.position
 	end
 end
+
+NavItem.find_or_create_by href: '/services', text: 'Services & Pricing'
+NavItem.find_or_create_by href: '/portfolio', text: 'Portfolio'
+NavItem.find_or_create_by href: '/faqs', text: 'FAQs'
+NavItem.find_or_create_by href: '/blog', text: 'Blog'

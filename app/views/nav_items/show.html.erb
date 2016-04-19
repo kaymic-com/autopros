@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Href:</strong>
+  <%= @nav_item.href %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @nav_item.text %>
+</p>
+
+<p>
+  <strong>Page:</strong>
+  <%= @nav_item.page %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @nav_item.position %>
+</p>
+
+<p>
+  <strong>Blank target:</strong>
+  <%= @nav_item.blank_target %>
+</p>
+
+<%= link_to 'Edit', edit_nav_item_path(@nav_item) %> |
+<%= link_to 'Back', nav_items_path %>

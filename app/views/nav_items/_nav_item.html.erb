@@ -1,0 +1,3 @@
+<%= content_tag :li, class: (request.fullpath == nav_item.href ? 'active' : nil) do %>
+	<%= link_to nav_item.text, nav_item.href, target: (nav_item.blank_target ? '_blank' : nil) %>
+<% end %>

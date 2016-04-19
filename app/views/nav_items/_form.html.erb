@@ -1,0 +1,47 @@
+<%= form_for(@nav_item) do |f| %>
+<% if @nav_item.errors.any? %>
+<div id="error_explanation" class="alert alert-danger">
+	<strong><%= pluralize(@nav_item.errors.count, "error") %> prohibited this nav_item from being saved:</strong>
+	<ul>
+		<% @nav_item.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+
+<div class="form-group">
+	<%= f.label :text %>
+	<%= f.text_field :text, class: 'form-control' %>
+</div>
+
+<div class="row">
+	<div class="col-sm-5">
+		<div class="form-group">
+			<%= f.label :href %>
+			<%= f.text_field :href, class: 'form-control' %>
+		</div>
+	</div>
+	<div class="col-sm-2">
+		<p class="text-center">
+			<br>
+			<strong>- or -</strong>
+		</p>
+	</div>
+	<div class="col-sm-5">
+		<div class="form-group">
+			<%= f.label :page_id %>
+			<%= f.select :page_id, Page.all.map{ |p| [p.title, p.id] }, {include_blank: '-'}, class: 'form-control' %>
+		</div>
+	</div>
+</div>
+
+<div class="form-group">
+	<%= f.label :blank_target, "Open in new window?" %>
+	<%= f.check_box :blank_target %>
+</div>
+
+<div class="form-group">
+	<%= f.submit nil, class: 'btn btn-default' %>
+</div>
+<% end %>
