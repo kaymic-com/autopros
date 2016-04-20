@@ -22,7 +22,19 @@
 			<ul class="nav navbar-nav">
 
 				<%= render partial: 'nav_items/nav_item', collection: @nav_items, as: :nav_item %>
-				<%= content_tag :li, link_to('<i class="fa fa-fw fa-pencil"></i>'.html_safe, nav_items_path) if is_admin? %>
+
+				<% if is_admin? %>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+						<i class="fa fa-fw fa-gear"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<%= content_tag :li, link_to('Nav Items', nav_items_path) %>
+						<li role="separator" class="divider"></li>
+						<%= content_tag :li, link_to('Sign out', destroy_user_session_path, method: :delete) %>
+					</ul>
+				</li>
+				<% end %>
 
 			</ul>
 
