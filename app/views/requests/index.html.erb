@@ -1,17 +1,21 @@
+<ul class="list-inline pull-right">
+	<%= content_tag :li, link_to('New Request', new_request_path) if is_admin? %>
+</ul>
+<header class="page-header">
+	<h1 class="text-center">
+		Requests
+	</h1>
+</header>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Requests</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Service</th>
-      <th>Day</th>
-      <th>Hour</th>
-      <th>Minute</th>
-      <th>Meridiem</th>
       <th>Name</th>
       <th>Email</th>
+		<th>Service</th>
+		<th>Date &amp; Time (EST)</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,13 +23,10 @@
   <tbody>
     <% @requests.each do |request| %>
       <tr>
-        <td><%= request.service %></td>
-        <td><%= request.day %></td>
-        <td><%= request.hour %></td>
-        <td><%= request.minute %></td>
-        <td><%= request.meridiem %></td>
         <td><%= request.name %></td>
-        <td><%= request.email %></td>
+        <td><%= link_to request.email, "mailto:#{request.email}" %></td>
+		  <td><%= request.service.name %></td>
+		  <td><%= request.time.strftime("%a %b %e, %Y at %I:%M %p") %></td>
         <td><%= link_to 'Show', request %></td>
         <td><%= link_to 'Edit', edit_request_path(request) %></td>
         <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,7 +34,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Request', new_request_path %>
