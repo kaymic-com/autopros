@@ -15,8 +15,8 @@ class Portfolio::Item < ActiveRecord::Base
 	end
 
 	def title
-		title = "#{year} #{make} #{model}"
-		title += " - #{categories.first.name}" if categories.any?
+		titleStr = "#{year} #{make} #{model}"
+		titleStr = titleStr + " - #{categories.first.name}" if categories.any?
 	end
 
 end
